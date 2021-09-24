@@ -12,6 +12,8 @@
 		B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6926FC332A00E3965E /* Assets.xcassets */; };
 		B0BC8B6D26FC332A00E3965E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6C26FC332A00E3965E /* Preview Assets.xcassets */; };
 		B0BC8B7526FC449300E3965E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7426FC449300E3965E /* SettingView.swift */; };
+		B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */; };
+		B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7826FD758D00E3965E /* StatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B0BC8B6C26FC332A00E3965E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0BC8B6E26FC332A00E3965E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0BC8B7426FC449300E3965E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolesView.swift; sourceTree = "<group>"; };
+		B0BC8B7826FD758D00E3965E /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				B0BC8B6E26FC332A00E3965E /* Info.plist */,
 				B0BC8B6B26FC332A00E3965E /* Preview Content */,
 				B0BC8B7426FC449300E3965E /* SettingView.swift */,
+				B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */,
+				B0BC8B7826FD758D00E3965E /* StatsView.swift */,
 			);
 			path = GameCard;
 			sourceTree = "<group>";
@@ -142,7 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0BC8B7526FC449300E3965E /* SettingView.swift in Sources */,
+				B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */,
 				B0BC8B6826FC332800E3965E /* ContentView.swift in Sources */,
+				B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */,
 				B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
