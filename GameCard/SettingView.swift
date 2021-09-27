@@ -9,7 +9,21 @@ import SwiftUI
 
 struct SettingView: View {
     var body: some View {
-        return Text("Mother Fucker!").padding()
+        ScrollView {
+            VStack {
+                HStack(spacing: 12) {
+                    Text("Settings")
+                        .font(.system(size: 28, weight: .bold))
+                    Spacer()
+                }.padding(.horizontal)
+                .padding(.leading, 14)
+                .padding(.top, 30)
+                
+                HStack {
+                    
+                }
+            }
+        }
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct GameCardApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConsolesView()
         }
     }
 }

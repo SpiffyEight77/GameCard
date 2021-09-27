@@ -11,12 +11,14 @@ struct StatsView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Stats")
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 16)
-                    .padding(.top, 54)
+                HStack(spacing: 12) {
+                    Text("Stats")
+                        .font(.system(size: 28, weight: .bold))
+                    Spacer()
+                }.padding(.horizontal)
+                .padding(.leading, 14)
+                .padding(.top, 30)
+
                 HStack(spacing: 10) {
                     Image("avatar")
                         .resizable()
@@ -35,6 +37,7 @@ struct StatsView: View {
                         .fontWeight(.semibold)
                 }.padding()
             }
+            
             VStack(alignment: .center){
                 HStack(spacing: 50) {
                     VStack {
