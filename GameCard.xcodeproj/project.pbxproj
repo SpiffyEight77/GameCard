@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B6526FC332800E3965E /* GameCardApp.swift */; };
-		B0BC8B6826FC332800E3965E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B6726FC332800E3965E /* ContentView.swift */; };
 		B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6926FC332A00E3965E /* Assets.xcassets */; };
 		B0BC8B6D26FC332A00E3965E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6C26FC332A00E3965E /* Preview Assets.xcassets */; };
 		B0BC8B7526FC449300E3965E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7426FC449300E3965E /* SettingView.swift */; };
 		B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */; };
 		B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7826FD758D00E3965E /* StatsView.swift */; };
+		B0BC8B7B2702B9A600E3965E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7A2702B9A400E3965E /* SignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B0BC8B6226FC332800E3965E /* GameCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BC8B6526FC332800E3965E /* GameCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardApp.swift; sourceTree = "<group>"; };
-		B0BC8B6726FC332800E3965E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B0BC8B6926FC332A00E3965E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0BC8B6C26FC332A00E3965E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0BC8B6E26FC332A00E3965E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0BC8B7426FC449300E3965E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolesView.swift; sourceTree = "<group>"; };
 		B0BC8B7826FD758D00E3965E /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		B0BC8B7A2702B9A400E3965E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				B0BC8B6526FC332800E3965E /* GameCardApp.swift */,
-				B0BC8B6726FC332800E3965E /* ContentView.swift */,
 				B0BC8B6926FC332A00E3965E /* Assets.xcassets */,
 				B0BC8B6E26FC332A00E3965E /* Info.plist */,
 				B0BC8B6B26FC332A00E3965E /* Preview Content */,
 				B0BC8B7426FC449300E3965E /* SettingView.swift */,
 				B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */,
 				B0BC8B7826FD758D00E3965E /* StatsView.swift */,
+				B0BC8B7A2702B9A400E3965E /* SignInView.swift */,
 			);
 			path = GameCard;
 			sourceTree = "<group>";
@@ -147,9 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0BC8B7B2702B9A600E3965E /* SignInView.swift in Sources */,
 				B0BC8B7526FC449300E3965E /* SettingView.swift in Sources */,
 				B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */,
-				B0BC8B6826FC332800E3965E /* ContentView.swift in Sources */,
 				B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */,
 				B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */,
 			);

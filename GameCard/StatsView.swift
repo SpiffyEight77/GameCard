@@ -15,10 +15,20 @@ struct StatsView: View {
                     Text("Stats")
                         .font(.system(size: 28, weight: .bold))
                     Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "arrow.clockwise.circle")
+                            .foregroundColor(.primary)
+                            .font(.system(size: 16, weight: .medium))
+                            .frame(width: 36, height: 36)
+                            .background(Color("background3"))
+                            .clipShape(Circle())
+                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    }
                 }.padding(.horizontal)
                 .padding(.leading, 14)
                 .padding(.top, 30)
-
+                
                 HStack(spacing: 10) {
                     Image("avatar")
                         .resizable()

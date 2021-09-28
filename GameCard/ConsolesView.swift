@@ -23,10 +23,7 @@ struct ConsolesView: View {
                 HStack(spacing: 12) {
                     Text("Consoles")
                         .font(.system(size: 28, weight: .bold))
-                    //                        .modifier(CustomFontModifier(size: 28))
-                    
                     Spacer()
-                    
                     Button(action: { self.showSettings.toggle() }) {
                         Image(systemName: "person")
                             .foregroundColor(.primary)
@@ -50,7 +47,6 @@ struct ConsolesView: View {
                     ZStack {
                         Button(action: {
                             self.showProfile.toggle()
-                            print("PSN button tapped!")
                         }) {
                             Image("playstation-blue")
                                 .resizable()
