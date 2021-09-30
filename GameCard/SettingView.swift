@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingView: View {
     var body: some View {
         ScrollView {
-            VStack {
+            VStack (spacing: 30) {
                 HStack(spacing: 12) {
                     Text("Settings")
                         .font(.system(size: 28, weight: .bold))

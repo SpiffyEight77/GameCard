@@ -16,7 +16,7 @@ struct StatsView: View {
                         .font(.system(size: 28, weight: .bold))
                     Spacer()
                     Button(action: {}) {
-                        Image(systemName: "arrow.clockwise.circle")
+                        Image(systemName: "arrow.clockwise")
                             .foregroundColor(.primary)
                             .font(.system(size: 16, weight: .medium))
                             .frame(width: 36, height: 36)
@@ -306,6 +306,7 @@ struct StatsView: View {
 struct StatsView_Previews: PreviewProvider {
     static var previews: some View {
         StatsView()
+            
         
     }
 }

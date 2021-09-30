@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = B076A4C62705685F0042D90A /* SlideOverCard */; };
 		B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B6526FC332800E3965E /* GameCardApp.swift */; };
 		B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6926FC332A00E3965E /* Assets.xcassets */; };
 		B0BC8B6D26FC332A00E3965E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6C26FC332A00E3965E /* Preview Assets.xcassets */; };
@@ -14,6 +15,10 @@
 		B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */; };
 		B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7826FD758D00E3965E /* StatsView.swift */; };
 		B0BC8B7B2702B9A600E3965E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7A2702B9A400E3965E /* SignInView.swift */; };
+		B0BC8B8727032E5700E3965E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */; };
+		B0BC8B8C2704142D00E3965E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B8B2704142C00E3965E /* AppDelegate.swift */; };
+		B0BC8B8E270414DC00E3965E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */; };
+		B0BC8B9427043DB200E3965E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B0BC8B9327043DB200E3965E /* GoogleSignIn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,9 @@
 		B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolesView.swift; sourceTree = "<group>"; };
 		B0BC8B7826FD758D00E3965E /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		B0BC8B7A2702B9A400E3965E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B0BC8B8B2704142C00E3965E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */,
+				B0BC8B9427043DB200E3965E /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,9 @@
 				B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */,
 				B0BC8B7826FD758D00E3965E /* StatsView.swift */,
 				B0BC8B7A2702B9A400E3965E /* SignInView.swift */,
+				B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */,
+				B0BC8B8B2704142C00E3965E /* AppDelegate.swift */,
+				B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */,
 			);
 			path = GameCard;
 			sourceTree = "<group>";
@@ -94,6 +107,10 @@
 			dependencies = (
 			);
 			name = GameCard;
+			packageProductDependencies = (
+				B0BC8B9327043DB200E3965E /* GoogleSignIn */,
+				B076A4C62705685F0042D90A /* SlideOverCard */,
+			);
 			productName = GameCard;
 			productReference = B0BC8B6226FC332800E3965E /* GameCard.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +138,10 @@
 				Base,
 			);
 			mainGroup = B0BC8B5926FC332800E3965E;
+			packageReferences = (
+				B0BC8B9227043DB200E3965E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				B076A4C52705685F0042D90A /* XCRemoteSwiftPackageReference "SlideOverCard" */,
+			);
 			productRefGroup = B0BC8B6326FC332800E3965E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +158,7 @@
 			files = (
 				B0BC8B6D26FC332A00E3965E /* Preview Assets.xcassets in Resources */,
 				B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */,
+				B0BC8B8727032E5700E3965E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +169,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0BC8B8C2704142D00E3965E /* AppDelegate.swift in Sources */,
+				B0BC8B8E270414DC00E3965E /* SceneDelegate.swift in Sources */,
 				B0BC8B7B2702B9A600E3965E /* SignInView.swift in Sources */,
 				B0BC8B7526FC449300E3965E /* SettingView.swift in Sources */,
 				B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */,
@@ -284,7 +308,7 @@
 				DEVELOPMENT_TEAM = 29294GQRKM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +330,7 @@
 				DEVELOPMENT_TEAM = 29294GQRKM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,6 +364,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B076A4C52705685F0042D90A /* XCRemoteSwiftPackageReference "SlideOverCard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joogps/SlideOverCard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		B0BC8B9227043DB200E3965E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B076A4C62705685F0042D90A /* SlideOverCard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076A4C52705685F0042D90A /* XCRemoteSwiftPackageReference "SlideOverCard" */;
+			productName = SlideOverCard;
+		};
+		B0BC8B9327043DB200E3965E /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0BC8B9227043DB200E3965E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B0BC8B5A26FC332800E3965E /* Project object */;
 }

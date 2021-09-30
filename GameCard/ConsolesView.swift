@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SlideOverCard
 
 struct ConsolesView: View {
     
@@ -15,6 +16,10 @@ struct ConsolesView: View {
     @State private var showSettings = false
     @State private var showProfile = false
     @State private var isSync = false
+    @State private var showSignIn = false
+    
+    @State var showFull = false
+    @State var show = false
     
     var body: some View {
         ScrollView(.vertical) {
@@ -24,8 +29,19 @@ struct ConsolesView: View {
                     Text("Consoles")
                         .font(.system(size: 28, weight: .bold))
                     Spacer()
-                    Button(action: { self.showSettings.toggle() }) {
+                    Button(action: { self.showSignIn.toggle() }) {
                         Image(systemName: "person")
+                            .foregroundColor(.primary)
+                            .font(.system(size: 16, weight: .medium))
+                            .frame(width: 36, height: 36)
+                            .background(Color("background3"))
+                            .clipShape(Circle())
+                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    }
+                    
+                    Button(action: { self.showSettings.toggle() }) {
+                        Image(systemName: "gear")
                             .foregroundColor(.primary)
                             .font(.system(size: 16, weight: .medium))
                             .frame(width: 36, height: 36)
@@ -37,6 +53,7 @@ struct ConsolesView: View {
                     .sheet(isPresented: $showSettings) {
                         SettingView()
                     }
+                    
                 }
                 .padding(.horizontal)
                 .padding(.leading, 14)
@@ -59,7 +76,7 @@ struct ConsolesView: View {
                         .sheet(isPresented: $showProfile) {
                             StatsView()
                         }
-
+                        
                         VStack {
                             Spacer()
                             HStack {
@@ -119,7 +136,14 @@ struct ConsolesView: View {
                 }
                 
             }
-        }.frame(maxWidth: .infinity)
+            
+        }
+        .frame(maxWidth: .infinity)
+        .slideOverCard(isPresented: $showSignIn) {
+            // Here goes your awesome content
+            SignInView()
+        }
+        
     }
 }
 
