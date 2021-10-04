@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct SignInView: View {
-    
+    let signInConfig = GIDConfiguration.init(clientID: "18202803046-7c6313k00mer0tkdgpj4po8mlqgof9nu.apps.googleusercontent.com")
     var body: some View {
         VStack (spacing: 30) {
             HStack(spacing: 12) {
@@ -39,7 +40,16 @@ struct SignInView: View {
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
             
             HStack(spacing: 10) {
-                Button(action: {}) {
+                Button(action: {
+                    
+                    guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
+                    
+                    GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: presentingViewController) { user, error in
+                      guard error == nil else { return }
+
+                      // If sign in succeeded, display the app's main content View.
+                    }
+                }) {
                     Image("Google")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
