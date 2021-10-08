@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64467537127DC924C4B18A96 /* Pods_GameCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC295E4CD30423AB7BCEC79 /* Pods_GameCard.framework */; };
 		B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = B076A4C62705685F0042D90A /* SlideOverCard */; };
 		B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B6526FC332800E3965E /* GameCardApp.swift */; };
 		B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6926FC332A00E3965E /* Assets.xcassets */; };
@@ -22,7 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B206F42DD1395AE17E24555 /* Pods-GameCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCard.debug.xcconfig"; path = "Target Support Files/Pods-GameCard/Pods-GameCard.debug.xcconfig"; sourceTree = "<group>"; };
+		7FC295E4CD30423AB7BCEC79 /* Pods_GameCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B076A4C827059F0A0042D90A /* GameCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameCard.entitlements; sourceTree = "<group>"; };
+		B0A447C2270F325E006DDE92 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B0BC8B6226FC332800E3965E /* GameCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BC8B6526FC332800E3965E /* GameCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardApp.swift; sourceTree = "<group>"; };
 		B0BC8B6926FC332A00E3965E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +39,7 @@
 		B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0BC8B8B2704142C00E3965E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C460FF62879005C3473295FA /* Pods-GameCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCard.release.xcconfig"; path = "Target Support Files/Pods-GameCard/Pods-GameCard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,17 +49,38 @@
 			files = (
 				B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */,
 				B0BC8B9427043DB200E3965E /* GoogleSignIn in Frameworks */,
+				64467537127DC924C4B18A96 /* Pods_GameCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71E02C70CBB0D7DEA038216C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B206F42DD1395AE17E24555 /* Pods-GameCard.debug.xcconfig */,
+				C460FF62879005C3473295FA /* Pods-GameCard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B0A447C1270F325D006DDE92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0A447C2270F325E006DDE92 /* Accelerate.framework */,
+				7FC295E4CD30423AB7BCEC79 /* Pods_GameCard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B0BC8B5926FC332800E3965E = {
 			isa = PBXGroup;
 			children = (
 				B0BC8B6426FC332800E3965E /* GameCard */,
 				B0BC8B6326FC332800E3965E /* Products */,
+				B0A447C1270F325D006DDE92 /* Frameworks */,
+				71E02C70CBB0D7DEA038216C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0BC8B7126FC332A00E3965E /* Build configuration list for PBXNativeTarget "GameCard" */;
 			buildPhases = (
+				D6542EE4939F7CA48D54CFFE /* [CP] Check Pods Manifest.lock */,
 				B0BC8B5E26FC332800E3965E /* Sources */,
 				B0BC8B5F26FC332800E3965E /* Frameworks */,
 				B0BC8B6026FC332800E3965E /* Resources */,
+				1F18EE3E71DC385E4FC27E35 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +193,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F18EE3E71DC385E4FC27E35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameCard/Pods-GameCard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameCard/Pods-GameCard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameCard/Pods-GameCard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6542EE4939F7CA48D54CFFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameCard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B0BC8B5E26FC332800E3965E /* Sources */ = {
@@ -302,24 +372,25 @@
 		};
 		B0BC8B7226FC332A00E3965E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B206F42DD1395AE17E24555 /* Pods-GameCard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GameCard/GameCard.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GameCard/Preview Content\"";
 				DEVELOPMENT_TEAM = 29294GQRKM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spiffyeight77.GameCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GameCardDevelopment;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -327,24 +398,25 @@
 		};
 		B0BC8B7326FC332A00E3965E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C460FF62879005C3473295FA /* Pods-GameCard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GameCard/GameCard.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GameCard/Preview Content\"";
 				DEVELOPMENT_TEAM = 29294GQRKM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spiffyeight77.GameCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GameCardDevelopment;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
