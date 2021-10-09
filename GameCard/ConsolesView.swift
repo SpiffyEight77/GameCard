@@ -50,9 +50,9 @@ struct ConsolesView: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                     }
-                    .sheet(isPresented: $showSettings) {
-                        SettingView()
-                    }
+//                    .sheet(isPresented: $showSettings) {
+//                        SettingView()
+//                    }
                     
                 }
                 .padding(.horizontal)
@@ -73,9 +73,9 @@ struct ConsolesView: View {
                                 .animation(.spring())
                                 .padding()
                         }
-                        .sheet(isPresented: $showProfile) {
-                            StatsView()
-                        }
+//                        .sheet(isPresented: $showProfile) {
+//                            StatsView()
+//                        }
                         
                         VStack {
                             Spacer()
@@ -142,6 +142,13 @@ struct ConsolesView: View {
         .slideOverCard(isPresented: $showSignIn) {
             // Here goes your awesome content
             SignInView()
+        }
+        .slideOverCard(isPresented: $showProfile) {
+            // Here goes your awesome content
+            TrophyView()
+        }
+        .slideOverCard(isPresented: $showSettings) {
+            UserView()
         }
         
     }
