@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserView: View {
+    @EnvironmentObject var user: UserStore
+    
     var body: some View {
         VStack (spacing: 30) {
             HStack(spacing: 12) {
@@ -17,13 +19,18 @@ struct UserView: View {
             }
             .padding(.horizontal)
             .padding(.leading, 14)
-//            .padding(.top, 30)
+            //            .padding(.top, 30)
             
             HStack(spacing: 10) {
-                Image("avatar")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                Image(systemName: "person")
+                    //                    .resizable()
+                    //                    .aspectRatio(contentMode: .fill)
+                    //                    .frame(width: 70, height: 70)
+                    //                    .clipShape(Circle())
+                    //                    .foregroundColor(.primary)
+                    .font(.system(size: 40, weight: .medium))
                     .frame(width: 70, height: 70)
+                    //                    .background(Color("background3"))
                     .clipShape(Circle())
                 Text("Nekocon233")
                     .fontWeight(.semibold)
@@ -52,6 +59,12 @@ struct UserView: View {
                             .fontWeight(.semibold)
                         Spacer()
                         Image(systemName: "chevron.forward")
+                    }
+                    .onTapGesture {
+                        UserDefaults.standard.set(false, forKey: "isLogged")
+                        self.user.isLogged = false
+                        self.user.showProfile = false
+                        self.user.showLogin = false
                     }
                 }
             }
@@ -87,5 +100,6 @@ struct UserView: View {
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
         UserView()
+            .environmentObject(UserStore())
     }
 }

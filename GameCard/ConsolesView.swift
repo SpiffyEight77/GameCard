@@ -13,13 +13,13 @@ struct ConsolesView: View {
     @State private var psnId: String = ""
     @State private var isEditing = false
     @State private var showingAlert = false
-    @State private var showSettings = false
     @State private var showProfile = false
     @State private var isSync = false
-    @State private var showSignIn = false
     
     @State var showFull = false
     @State var show = false
+    
+    @EnvironmentObject var user: UserStore
     
     var body: some View {
         ScrollView(.vertical) {
@@ -29,7 +29,13 @@ struct ConsolesView: View {
                     Text("Consoles")
                         .font(.system(size: 28, weight: .bold))
                     Spacer()
-                    Button(action: { self.showSignIn.toggle() }) {
+                    Button(action: {
+                        if self.user.isLogged {
+                            self.user.showProfile.toggle()
+                        } else {
+                            self.user.showLogin.toggle()
+                        }
+                    }) {
                         Image(systemName: "person")
                             .foregroundColor(.primary)
                             .font(.system(size: 16, weight: .medium))
@@ -39,20 +45,20 @@ struct ConsolesView: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                     }
-                    
-                    Button(action: { self.showSettings.toggle() }) {
-                        Image(systemName: "gear")
-                            .foregroundColor(.primary)
-                            .font(.system(size: 16, weight: .medium))
-                            .frame(width: 36, height: 36)
-                            .background(Color("background3"))
-                            .clipShape(Circle())
-                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                    }
-//                    .sheet(isPresented: $showSettings) {
-//                        SettingView()
-//                    }
+                                    
+                    //                    Button(action: { self.showSettings.toggle() }) {
+                    //                        Image(systemName: "gear")
+                    //                            .foregroundColor(.primary)
+                    //                            .font(.system(size: 16, weight: .medium))
+                    //                            .frame(width: 36, height: 36)
+                    //                            .background(Color("background3"))
+                    //                            .clipShape(Circle())
+                    //                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                    //                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    //                    }
+                    //                    .sheet(isPresented: $showSettings) {
+                    //                        SettingView()
+                    //                    }
                     
                 }
                 .padding(.horizontal)
@@ -73,9 +79,9 @@ struct ConsolesView: View {
                                 .animation(.spring())
                                 .padding()
                         }
-//                        .sheet(isPresented: $showProfile) {
-//                            StatsView()
-//                        }
+                        //                        .sheet(isPresented: $showProfile) {
+                        //                            StatsView()
+                        //                        }
                         
                         VStack {
                             Spacer()
@@ -139,7 +145,7 @@ struct ConsolesView: View {
             
         }
         .frame(maxWidth: .infinity)
-        .slideOverCard(isPresented: $showSignIn) {
+        .slideOverCard(isPresented: $user.showLogin) {
             // Here goes your awesome content
             SignInView()
         }
@@ -147,7 +153,7 @@ struct ConsolesView: View {
             // Here goes your awesome content
             TrophyView()
         }
-        .slideOverCard(isPresented: $showSettings) {
+        .slideOverCard(isPresented: $user.showProfile) {
             UserView()
         }
         
@@ -158,5 +164,6 @@ struct ConsolesView_Previews: PreviewProvider {
     static var previews: some View {
         ConsolesView()
             .preferredColorScheme(.light)
+            .environmentObject(UserStore())
     }
 }

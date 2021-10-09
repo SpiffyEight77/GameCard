@@ -16,6 +16,7 @@ struct SignInView: View {
     @State private var showingAlert = false
     
     @State private var resId = ""
+    @EnvironmentObject var user: UserStore
     
     let signInConfig = GIDConfiguration.init(clientID: "18202803046-7c6313k00mer0tkdgpj4po8mlqgof9nu.apps.googleusercontent.com")
     var body: some View {
@@ -42,6 +43,10 @@ struct SignInView: View {
                         } else {
                             print(result?.authenticationToken?.tokenString)
                             print("Logged In")
+                            UserDefaults.standard.set(true, forKey: "isLogged")
+                            self.user.isLogged = true
+                            self.user.showProfile = true
+                            self.user.showLogin = false
                         }
                     }
                 }) {
@@ -53,8 +58,6 @@ struct SignInView: View {
                     Text("Sign in with Facebook")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                    
-                    
                 }
             }
             .padding()
@@ -73,6 +76,10 @@ struct SignInView: View {
                         guard error == nil else { return }
                         print(user!.authentication.idToken)
                         // If sign in succeeded, display the app's main content View.
+                        UserDefaults.standard.set(true, forKey: "isLogged")
+                        self.user.isLogged = true
+                        self.user.showProfile = true
+                        self.user.showLogin = false
                     }
                 }) {
                     Image("Google")
@@ -128,6 +135,10 @@ struct SignInView: View {
                                     return
                                 }
                                 print(string)
+                                UserDefaults.standard.set(true, forKey: "isLogged")
+                                self.user.isLogged = true
+                                self.user.showProfile = true
+                                self.user.showLogin = false
                             }
                             dataTask.resume()
                             
@@ -165,5 +176,6 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+            .environmentObject(UserStore())
     }
 }

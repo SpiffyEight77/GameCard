@@ -11,6 +11,7 @@
 		B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = B076A4C62705685F0042D90A /* SlideOverCard */; };
 		B0A447E02711AFD1006DDE92 /* TrophyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A447DF2711AFD0006DDE92 /* TrophyView.swift */; };
 		B0A447E32711CA63006DDE92 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A447E22711CA62006DDE92 /* UserView.swift */; };
+		B0A447E62711E48D006DDE92 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A447E52711E48D006DDE92 /* UserStore.swift */; };
 		B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B6526FC332800E3965E /* GameCardApp.swift */; };
 		B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6926FC332A00E3965E /* Assets.xcassets */; };
 		B0BC8B6D26FC332A00E3965E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B6C26FC332A00E3965E /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		B0A447C2270F325E006DDE92 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B0A447DF2711AFD0006DDE92 /* TrophyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyView.swift; sourceTree = "<group>"; };
 		B0A447E22711CA62006DDE92 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		B0A447E52711E48D006DDE92 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		B0BC8B6226FC332800E3965E /* GameCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BC8B6526FC332800E3965E /* GameCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardApp.swift; sourceTree = "<group>"; };
 		B0BC8B6926FC332A00E3965E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */,
 				B0A447DF2711AFD0006DDE92 /* TrophyView.swift */,
 				B0A447E22711CA62006DDE92 /* UserView.swift */,
+				B0A447E52711E48D006DDE92 /* UserStore.swift */,
 			);
 			path = GameCard;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				B0BC8B7526FC449300E3965E /* SettingView.swift in Sources */,
 				B0A447E02711AFD1006DDE92 /* TrophyView.swift in Sources */,
 				B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */,
+				B0A447E62711E48D006DDE92 /* UserStore.swift in Sources */,
 				B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */,
 				B0A447E32711CA63006DDE92 /* UserView.swift in Sources */,
 				B0BC8B6626FC332800E3965E /* GameCardApp.swift in Sources */,
