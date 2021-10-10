@@ -14,6 +14,19 @@ class UserStore: ObservableObject {
             UserDefaults.standard.set(self.isLogged, forKey: "isLogged")
         }
     }
+    
+    @Published var accessToken: String = UserDefaults.standard.string(forKey: "accessToken") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
+        }
+    }
+    
+    @Published var userName: String = UserDefaults.standard.string(forKey: "userName") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.userName, forKey: "userName")
+        }
+    }
+    
     @Published var showLogin = false
     @Published var showProfile = false
 }

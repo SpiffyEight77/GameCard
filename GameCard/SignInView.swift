@@ -10,6 +10,26 @@ import GoogleSignIn
 import FBSDKLoginKit
 import AuthenticationServices
 
+struct AccessTokenResponse: Codable {
+    var data: Data
+}
+
+extension AccessTokenResponse {
+    struct Data: Codable {
+        var token: String
+    }
+}
+
+struct UserInfoResponse: Codable {
+    var data: Data
+}
+
+extension UserInfoResponse {
+    struct Data: Codable {
+        var email: String
+    }
+}
+
 struct SignInView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var currentNonce:String?
@@ -41,12 +61,71 @@ struct SignInView: View {
                         } else if let result = result, result.isCancelled {
                             print("Cancelled")
                         } else {
-                            print(result?.authenticationToken?.tokenString)
+
                             print("Logged In")
-                            UserDefaults.standard.set(true, forKey: "isLogged")
-                            self.user.isLogged = true
-                            self.user.showProfile = true
-                            self.user.showLogin = false
+                            
+                            let semaphore = DispatchSemaphore(value: 0)
+                            
+                            let url = "https://user-overseas.peropero.net/api/v1/o/facebook/facebookGetToken?" + "&token=" + result!.token!.tokenString + "&user_id=" + result!.token!.userID + "&game_id=musedash" + "&app_id=171760141721705"
+                            
+                            let codeUrl = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                            
+                            let session = URLSession.shared
+                            let dataTask = session.dataTask(with: codeUrl) { (data, response, error) in
+                                guard let data = data,
+                                      let string = String(data: data, encoding: .utf8) else {
+                                          return
+                                      }
+                                do {
+                                    let res = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
+                                    UserDefaults.standard.set(res.data.token, forKey: "accessToken")
+                                } catch let error {
+                                    print(error)
+                                }
+                                print(string)
+                                
+                                semaphore.signal()
+                                
+                            }
+                            
+                            dataTask.resume()
+                            
+                            _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+                            
+                            let userInfoUrl = "https://user-overseas.peropero.net/api/v1/me/info/"
+                            
+                            let codeUserInfoUrl = URL(string: userInfoUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                            var request = URLRequest(url: codeUserInfoUrl)
+                            
+                            request.setValue(UserDefaults.standard.string(forKey: "accessToken"), forHTTPHeaderField: "Authorization")
+                            
+                            let UserInfodataTask = session.dataTask(with: request) { (data, response, error) in
+                                guard let data = data,
+                                      let string = String(data: data, encoding: .utf8) else {
+                                          return
+                                      }
+                                do {
+                                    let res = try JSONDecoder().decode(UserInfoResponse.self, from: data)
+                                    print(res.data.email)
+                                    
+                                    let username  = res.data.email.components(separatedBy: "@")
+                                    print(username)
+                                    UserDefaults.standard.set(username[0], forKey: "userName")
+                                    
+                                } catch let error {
+                                    print(error)
+                                }
+                                
+                                print(string)
+                                
+                                UserDefaults.standard.set(true, forKey: "isLogged")
+                                self.user.isLogged = true
+                                self.user.showProfile = true
+                                self.user.showLogin = false
+                            }
+                            
+                            UserInfodataTask.resume()
+
                         }
                     }
                 }) {
@@ -76,10 +155,69 @@ struct SignInView: View {
                         guard error == nil else { return }
                         print(user!.authentication.idToken)
                         // If sign in succeeded, display the app's main content View.
-                        UserDefaults.standard.set(true, forKey: "isLogged")
-                        self.user.isLogged = true
-                        self.user.showProfile = true
-                        self.user.showLogin = false
+                        
+                        let semaphore = DispatchSemaphore(value: 0)
+                        
+                        let url = "https://user-overseas.peropero.net/api/v1/o/google/googleGetToken?" + "code=" + user!.authentication.idToken! + "&game_id=musedash" + "&app_id=18202803046-7c6313k00mer0tkdgpj4po8mlqgof9nu.apps.googleusercontent.com"
+                        
+                        let codeUrl = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                        
+                        let session = URLSession.shared
+                        let dataTask = session.dataTask(with: codeUrl) { (data, response, error) in
+                            guard let data = data,
+                                  let string = String(data: data, encoding: .utf8) else {
+                                      return
+                                  }
+                            do {
+                                let res = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
+                                UserDefaults.standard.set(res.data.token, forKey: "accessToken")
+                            } catch let error {
+                                print(error)
+                            }
+                            print(string)
+                            
+                            semaphore.signal()
+                            
+                        }
+                        
+                        dataTask.resume()
+                        
+                        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+                        
+                        let userInfoUrl = "https://user-overseas.peropero.net/api/v1/me/info/"
+                        
+                        let codeUserInfoUrl = URL(string: userInfoUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                        var request = URLRequest(url: codeUserInfoUrl)
+                        
+                        request.setValue(UserDefaults.standard.string(forKey: "accessToken"), forHTTPHeaderField: "Authorization")
+                        
+                        let UserInfodataTask = session.dataTask(with: request) { (data, response, error) in
+                            guard let data = data,
+                                  let string = String(data: data, encoding: .utf8) else {
+                                      return
+                                  }
+                            do {
+                                let res = try JSONDecoder().decode(UserInfoResponse.self, from: data)
+                                print(res.data.email)
+                                
+                                let username  = res.data.email.components(separatedBy: "@")
+                                print(username)
+                                UserDefaults.standard.set(username[0], forKey: "userName")
+                                
+                            } catch let error {
+                                print(error)
+                            }
+                            
+                            print(string)
+                            
+                            UserDefaults.standard.set(true, forKey: "isLogged")
+                            self.user.isLogged = true
+                            self.user.showProfile = true
+                            self.user.showLogin = false
+                        }
+                        
+                        UserInfodataTask.resume()
+                        
                     }
                 }) {
                     Image("Google")
@@ -123,24 +261,67 @@ struct SignInView: View {
                             
                             print(fullName ?? "", email, userId, tokenStr)
                             
-                            let url = "https://dev-user.peropero.net/api/v1/o/apple/appleGetToken?" + "name=" + username + "&user_id=" + userId + "&token=" + tokenStr + "&email=" + email + "&app_id=com.spiffyeight77.signindemo"
+                            let semaphore = DispatchSemaphore(value: 0)
+                            
+                            let url = "https://user.peropero.net/api/v1/o/apple/appleGetToken?" + "name=" + username + "&user_id=" + userId + "&token=" + tokenStr + "&email=" + email + "&app_id=com.spiffyeight77.GameCard"
                             
                             let codeUrl = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
                             
-                            // URLSession
                             let session = URLSession.shared
                             let dataTask = session.dataTask(with: codeUrl) { (data, response, error) in
                                 guard let data = data,
                                       let string = String(data: data, encoding: .utf8) else {
-                                    return
+                                          return
+                                      }
+                                do {
+                                    let res = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
+                                    UserDefaults.standard.set(res.data.token, forKey: "accessToken")
+                                } catch let error {
+                                    print(error)
                                 }
                                 print(string)
+                                
+                                semaphore.signal()
+                                
+                            }
+                            
+                            dataTask.resume()
+                            
+                            _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+                            
+                            let userInfoUrl = "https://user.peropero.net/api/v1/me/info/"
+                            
+                            let codeUserInfoUrl = URL(string: userInfoUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                            var request = URLRequest(url: codeUserInfoUrl)
+                            
+                            request.setValue(UserDefaults.standard.string(forKey: "accessToken"), forHTTPHeaderField: "Authorization")
+                            
+                            let UserInfodataTask = session.dataTask(with: request) { (data, response, error) in
+                                guard let data = data,
+                                      let string = String(data: data, encoding: .utf8) else {
+                                          return
+                                      }
+                                do {
+                                    let res = try JSONDecoder().decode(UserInfoResponse.self, from: data)
+                                    print(res.data.email)
+                                    
+                                    let username  = res.data.email.components(separatedBy: "@")
+                                    print(username)
+                                    UserDefaults.standard.set(username[0], forKey: "userName")
+                                    
+                                } catch let error {
+                                    print(error)
+                                }
+                                
+                                print(string)
+                                
                                 UserDefaults.standard.set(true, forKey: "isLogged")
                                 self.user.isLogged = true
                                 self.user.showProfile = true
                                 self.user.showLogin = false
                             }
-                            dataTask.resume()
+                            
+                            UserInfodataTask.resume()
                             
                             self.showingAlert = true
                             self.resId = appleIDCredential.user
@@ -157,16 +338,16 @@ struct SignInView: View {
                     }
                 }
             )
-            .frame(maxWidth: .infinity)
-            .frame(height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Sgin in successfully"),
-                      message: Text(resId),
-                      dismissButton: .default(Text("OK")))
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+                .frame(maxWidth: .infinity)
+                .frame(height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Sgin in successfully"),
+                          message: Text(resId),
+                          dismissButton: .default(Text("OK")))
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
             
         }
         .padding()

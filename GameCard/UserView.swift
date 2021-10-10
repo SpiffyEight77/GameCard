@@ -22,17 +22,12 @@ struct UserView: View {
             //            .padding(.top, 30)
             
             HStack(spacing: 10) {
-                Image(systemName: "person")
-                    //                    .resizable()
-                    //                    .aspectRatio(contentMode: .fill)
-                    //                    .frame(width: 70, height: 70)
-                    //                    .clipShape(Circle())
-                    //                    .foregroundColor(.primary)
-                    .font(.system(size: 40, weight: .medium))
+                Image("avatar")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 70, height: 70)
-                    //                    .background(Color("background3"))
                     .clipShape(Circle())
-                Text("Nekocon233")
+                Text(UserDefaults.standard.string(forKey: "userName")!)
                     .fontWeight(.semibold)
                 Spacer()
             }
