@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TrophyView: View {
+    @EnvironmentObject var user: UserStore
     var body: some View {
         VStack {
             HStack(spacing: 12) {
@@ -23,7 +24,7 @@ struct TrophyView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
-                Text("Nekocon233")
+                Text(UserDefaults.standard.string(forKey: "userName")!)
                     .fontWeight(.semibold)
                 Spacer()
             }
@@ -35,7 +36,7 @@ struct TrophyView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 40, height: 40)
-                    Text("9")
+                    Text(UserDefaults.standard.string(forKey: "platinum")!)
                         .fontWeight(.semibold)
                     
                 }
@@ -45,7 +46,7 @@ struct TrophyView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 40, height: 40)
-                    Text("32")
+                    Text(UserDefaults.standard.string(forKey: "gold")!)
                         .fontWeight(.semibold)
                 }
                 
@@ -54,7 +55,7 @@ struct TrophyView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 40, height: 40)
-                    Text("119")
+                    Text(UserDefaults.standard.string(forKey: "silver")!)
                         .fontWeight(.semibold)
                 }
                 
@@ -65,7 +66,7 @@ struct TrophyView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    Text("794")
+                    Text(UserDefaults.standard.string(forKey: "bronze")!)
                         .fontWeight(.semibold)
                 }
                 

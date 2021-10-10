@@ -34,6 +34,7 @@ struct SignInView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var currentNonce:String?
     @State private var showingAlert = false
+    @State private var isLogging = false
     
     @State private var resId = ""
     @EnvironmentObject var user: UserStore
@@ -52,6 +53,7 @@ struct SignInView: View {
             
             HStack(spacing: 10) {
                 Button(action: {
+                    self.isLogging.toggle()
                     guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
                     
                     let loginManager = LoginManager()
@@ -59,9 +61,10 @@ struct SignInView: View {
                         if let error = error {
                             print("Encountered Erorr: \(error)")
                         } else if let result = result, result.isCancelled {
+                            self.isLogging.toggle()
                             print("Cancelled")
                         } else {
-
+                            
                             print("Logged In")
                             
                             let semaphore = DispatchSemaphore(value: 0)
@@ -125,7 +128,7 @@ struct SignInView: View {
                             }
                             
                             UserInfodataTask.resume()
-
+                            
                         }
                     }
                 }) {
@@ -145,17 +148,21 @@ struct SignInView: View {
             .background(Color("background2"))
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+            .disabled(isLogging)
             
             HStack(spacing: 10) {
                 Button(action: {
-                    
+                    self.isLogging.toggle()
                     guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
                     
                     GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: presentingViewController) { user, error in
-                        guard error == nil else { return }
+                        guard error == nil else {
+                            self.isLogging.toggle()
+                            return
+                        }
                         print(user!.authentication.idToken)
                         // If sign in succeeded, display the app's main content View.
-                        
+                        self.user.showLogin = false
                         let semaphore = DispatchSemaphore(value: 0)
                         
                         let url = "https://user-overseas.peropero.net/api/v1/o/google/googleGetToken?" + "code=" + user!.authentication.idToken! + "&game_id=musedash" + "&app_id=18202803046-7c6313k00mer0tkdgpj4po8mlqgof9nu.apps.googleusercontent.com"
@@ -213,7 +220,7 @@ struct SignInView: View {
                             UserDefaults.standard.set(true, forKey: "isLogged")
                             self.user.isLogged = true
                             self.user.showProfile = true
-                            self.user.showLogin = false
+                            //                            self.user.showLogin = false
                         }
                         
                         UserInfodataTask.resume()
@@ -237,6 +244,7 @@ struct SignInView: View {
             .background(Color("background3"))
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+            .disabled(isLogging)
             
             SignInWithAppleButton(
                 
@@ -276,6 +284,7 @@ struct SignInView: View {
                                 do {
                                     let res = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
                                     UserDefaults.standard.set(res.data.token, forKey: "accessToken")
+                                    self.user.showLogin = false
                                 } catch let error {
                                     print(error)
                                 }
@@ -318,7 +327,7 @@ struct SignInView: View {
                                 UserDefaults.standard.set(true, forKey: "isLogged")
                                 self.user.isLogged = true
                                 self.user.showProfile = true
-                                self.user.showLogin = false
+                                
                             }
                             
                             UserInfodataTask.resume()
@@ -341,13 +350,14 @@ struct SignInView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Sgin in successfully"),
-                          message: Text(resId),
-                          dismissButton: .default(Text("OK")))
-                }
+//                .alert(isPresented: $showingAlert) {
+//                    Alert(title: Text("Sgin in successfully"),
+//                          message: Text(resId),
+//                          dismissButton: .default(Text("OK")))
+//                }
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+                .disabled(isLogging)
             
         }
         .padding()

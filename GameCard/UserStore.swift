@@ -27,6 +27,38 @@ class UserStore: ObservableObject {
         }
     }
     
+    @Published var platinum: String = UserDefaults.standard.string(forKey: "platinum") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.platinum, forKey: "platinum")
+        }
+    }
+    
+    @Published var gold: String = UserDefaults.standard.string(forKey: "gold") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.gold, forKey: "gold")
+        }
+    }
+
+    
+    @Published var silver: String = UserDefaults.standard.string(forKey: "silver") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.silver, forKey: "silver")
+        }
+    }
+    
+    @Published var bronze: String = UserDefaults.standard.string(forKey: "bronze") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.bronze, forKey: "bronze")
+        }
+    }
+    
+//    @Published var trophyLevel: Int = UserDefaults.standard.integer(forKey: "trophyLevel") {
+//        didSet {
+//            UserDefaults.standard.set(self.trophyLevel, forKey: "trophyLevel")
+//        }
+//    }
+    
+    @Published var isSync = false
     @Published var showLogin = false
     @Published var showProfile = false
 }
