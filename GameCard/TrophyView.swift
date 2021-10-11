@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TrophyView: View {
     @EnvironmentObject var user: UserStore
@@ -16,15 +17,15 @@ struct TrophyView: View {
                     .font(.system(size: 28, weight: .bold))
                 Spacer()
             }.padding(.horizontal)
-            .padding(.leading, 14)
+                .padding(.leading, 14)
             
             HStack(spacing: 10) {
-                Image("avatar")
+                KFImage(URL(string: UserDefaults.standard.string(forKey: "avatar")!)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
-                Text(UserDefaults.standard.string(forKey: "userName")!)
+                Text(UserDefaults.standard.string(forKey: "psnId")!)
                     .fontWeight(.semibold)
                 Spacer()
             }
@@ -71,7 +72,8 @@ struct TrophyView: View {
                 }
                 
             }
-        }.padding()
+        }
+        .padding()
     }
 }
 

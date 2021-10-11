@@ -15,6 +15,12 @@ class UserStore: ObservableObject {
         }
     }
     
+    @Published var isSynced: Bool = UserDefaults.standard.bool(forKey: "isSynced") {
+        didSet {
+            UserDefaults.standard.set(self.isSynced, forKey: "isSynced")
+        }
+    }
+    
     @Published var accessToken: String = UserDefaults.standard.string(forKey: "accessToken") ?? "" {
         didSet {
             UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
@@ -26,6 +32,19 @@ class UserStore: ObservableObject {
             UserDefaults.standard.set(self.userName, forKey: "userName")
         }
     }
+    
+    @Published var psnId: String = UserDefaults.standard.string(forKey: "psnId") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.psnId, forKey: "psnId")
+        }
+    }
+    
+    @Published var avatar: String = UserDefaults.standard.string(forKey: "avatar") ?? "" {
+        didSet {
+            UserDefaults.standard.set(self.avatar, forKey: "avatar")
+        }
+    }
+    
     
     @Published var platinum: String = UserDefaults.standard.string(forKey: "platinum") ?? "" {
         didSet {
@@ -58,7 +77,6 @@ class UserStore: ObservableObject {
 //        }
 //    }
     
-    @Published var isSync = false
     @Published var showLogin = false
     @Published var showProfile = false
 }

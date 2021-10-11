@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		64467537127DC924C4B18A96 /* Pods_GameCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC295E4CD30423AB7BCEC79 /* Pods_GameCard.framework */; };
 		B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = B076A4C62705685F0042D90A /* SlideOverCard */; };
+		B076A4D027142F030042D90A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B076A4CF27142F030042D90A /* Kingfisher */; };
 		B0A447E02711AFD1006DDE92 /* TrophyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A447DF2711AFD0006DDE92 /* TrophyView.swift */; };
 		B0A447E32711CA63006DDE92 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A447E22711CA62006DDE92 /* UserView.swift */; };
 		B0A447E62711E48D006DDE92 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A447E52711E48D006DDE92 /* UserStore.swift */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B076A4D027142F030042D90A /* Kingfisher in Frameworks */,
 				B076A4C72705685F0042D90A /* SlideOverCard in Frameworks */,
 				B0BC8B9427043DB200E3965E /* GoogleSignIn in Frameworks */,
 				64467537127DC924C4B18A96 /* Pods_GameCard.framework in Frameworks */,
@@ -149,6 +151,7 @@
 			packageProductDependencies = (
 				B0BC8B9327043DB200E3965E /* GoogleSignIn */,
 				B076A4C62705685F0042D90A /* SlideOverCard */,
+				B076A4CF27142F030042D90A /* Kingfisher */,
 			);
 			productName = GameCard;
 			productReference = B0BC8B6226FC332800E3965E /* GameCard.app */;
@@ -180,6 +183,7 @@
 			packageReferences = (
 				B0BC8B9227043DB200E3965E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B076A4C52705685F0042D90A /* XCRemoteSwiftPackageReference "SlideOverCard" */,
+				B076A4CE27142F030042D90A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = B0BC8B6326FC332800E3965E /* Products */;
 			projectDirPath = "";
@@ -466,6 +470,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		B076A4CE27142F030042D90A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		B0BC8B9227043DB200E3965E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -481,6 +493,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B076A4C52705685F0042D90A /* XCRemoteSwiftPackageReference "SlideOverCard" */;
 			productName = SlideOverCard;
+		};
+		B076A4CF27142F030042D90A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076A4CE27142F030042D90A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		B0BC8B9327043DB200E3965E /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
