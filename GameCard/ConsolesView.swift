@@ -133,6 +133,7 @@ struct ConsolesView: View {
                           secondaryButton: .destructive(
                             Text("Remove"),
                             action: {
+                                self.user.isSynced = false
                                 UserDefaults.standard.set(false, forKey: "isSynced")
                                 UserDefaults.standard.set("",forKey: "psnId")
                                 UserDefaults.standard.removeObject(forKey: "platinum")
@@ -164,11 +165,11 @@ struct ConsolesView: View {
                         VStack {
                             Spacer()
                             HStack {
-//                                Image("avatar")
-//                                    .resizable()
-//                                    .aspectRatio(contentMode: .fill)
-//                                    .frame(width: 40, height: 40)
-//                                    .clipShape(Circle())
+                                //                                Image("avatar")
+                                //                                    .resizable()
+                                //                                    .aspectRatio(contentMode: .fill)
+                                //                                    .frame(width: 40, height: 40)
+                                //                                    .clipShape(Circle())
                                 Text(UserDefaults.standard.string(forKey: "psnId")!)
                                     .fontWeight(.semibold)
                                     .foregroundColor(.white)
