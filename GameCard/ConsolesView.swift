@@ -134,6 +134,7 @@ struct ConsolesView: View {
                             Text("Remove"),
                             action: {
                                 self.user.isSynced = false
+                                self.psnId = ""
                                 UserDefaults.standard.set(false, forKey: "isSynced")
                                 UserDefaults.standard.set("",forKey: "psnId")
                                 UserDefaults.standard.removeObject(forKey: "platinum")
@@ -158,21 +159,25 @@ struct ConsolesView: View {
                                 .animation(.spring())
                                 .padding()
                         }
-                        //                        .sheet(isPresented: $showProfile) {
-                        //                            StatsView()
-                        //                        }
+                        .sheet(isPresented: $showProfile) {
+                            StatsView()
+                        }
                         
                         VStack {
                             Spacer()
                             HStack {
-                                //                                Image("avatar")
-                                //                                    .resizable()
-                                //                                    .aspectRatio(contentMode: .fill)
-                                //                                    .frame(width: 40, height: 40)
-                                //                                    .clipShape(Circle())
-                                Text(UserDefaults.standard.string(forKey: "psnId")!)
+                                //                                                                Image("avatar")
+                                //                                                                    .resizable()
+                                //                                                                    .aspectRatio(contentMode: .fill)
+                                //                                                                    .frame(width: 40, height: 40)
+                                //                                                                    .clipShape(Circle())
+                                Text(self.psnId)
                                     .fontWeight(.semibold)
                                     .foregroundColor(.white)
+                                
+                                //                                Text(UserDefaults.standard.string(forKey: "psnId")!)
+                                //                                    .fontWeight(.semibold)
+                                //                                    .foregroundColor(.white)
                             }
                             .padding()
                             
@@ -212,51 +217,53 @@ struct ConsolesView: View {
                                     if self.psnId.isEmpty {
                                         selectedAlert = SelectedAlert(message: "PSN ID can not be null")
                                     } else {
-                                        self.isSyncing.toggle()
+                                        //                                        self.isSyncing.toggle()
+                                        self.psnId = self.psnId
                                         
-                                        let url = "http://101.35.116.189:3000/sync?psn=" + self.psnId
+                                        //                                        let url = "http://101.35.116.189:3000/sync?psn=" + self.psnId
+                                        //
+                                        //                                        let codeUrl = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                                        //
+                                        //                                        let session = URLSession.shared
+                                        //                                        let dataTask = session.dataTask(with: codeUrl) { (data, response, error) in
+                                        //                                            guard let data = data,
+                                        //                                                  let string = String(data: data, encoding: .utf8) else {
+                                        //                                                      return
+                                        //                                                  }
+                                        //                                            do {
+                                        //                                                let res = try JSONDecoder().decode(userTrophySummaryResponse.self, from: data)
+                                        //                                                UserDefaults.standard.set(psnId, forKey: "userName")
+                                        //                                                //                                            UserDefaults.standard.set(userTrophySummaryResponse.CodingKeys.DataKeys.trophyLevel, forKey: "trophyLevel")
+                                        //
+                                        //                                                let platinum = String(res.platinum)
+                                        //                                                let gold = String(res.gold)
+                                        //                                                let  silver = String(res.silver)
+                                        //                                                let bronze = String(res.bronze)
+                                        //                                                //                                            print(userTrophySummaryResponse)
+                                        //                                                UserDefaults.standard.set(res.avatarUrl, forKey: "avatar")
+                                        //                                                UserDefaults.standard.set(res.onlineId, forKey: "psnId")
+                                        //                                                UserDefaults.standard.set(platinum, forKey: "platinum")
+                                        //                                                UserDefaults.standard.set(gold, forKey: "gold")
+                                        //                                                UserDefaults.standard.set(silver, forKey: "silver")
+                                        //                                                UserDefaults.standard.set(bronze, forKey: "bronze")
+                                        UserDefaults.standard.set(true, forKey: "isSynced")
+                                        self.user.isSynced = true
+                                        self.user.showLogin = false
+                                        self.user.isLogged = true
+                                        //                                                print(res)
+                                        //                                                self.isSyncing.toggle()
+                                        //                                            } catch let error {
+                                        //                                                print(error)
+                                        //                                                self.isSyncing.toggle()
+                                        //                                                selectedAlert = SelectedAlert(message: "Please try again later")
+                                        //                                            }
+                                        //                                            print(string)
                                         
-                                        let codeUrl = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                                        //                                        }
                                         
-                                        let session = URLSession.shared
-                                        let dataTask = session.dataTask(with: codeUrl) { (data, response, error) in
-                                            guard let data = data,
-                                                  let string = String(data: data, encoding: .utf8) else {
-                                                      return
-                                                  }
-                                            do {
-                                                let res = try JSONDecoder().decode(userTrophySummaryResponse.self, from: data)
-                                                UserDefaults.standard.set(psnId, forKey: "userName")
-                                                //                                            UserDefaults.standard.set(userTrophySummaryResponse.CodingKeys.DataKeys.trophyLevel, forKey: "trophyLevel")
-                                                
-                                                let platinum = String(res.platinum)
-                                                let gold = String(res.gold)
-                                                let  silver = String(res.silver)
-                                                let bronze = String(res.bronze)
-                                                //                                            print(userTrophySummaryResponse)
-                                                UserDefaults.standard.set(res.avatarUrl, forKey: "avatar")
-                                                UserDefaults.standard.set(res.onlineId, forKey: "psnId")
-                                                UserDefaults.standard.set(platinum, forKey: "platinum")
-                                                UserDefaults.standard.set(gold, forKey: "gold")
-                                                UserDefaults.standard.set(silver, forKey: "silver")
-                                                UserDefaults.standard.set(bronze, forKey: "bronze")
-                                                UserDefaults.standard.set(true, forKey: "isSynced")
-                                                self.user.isSynced = true
-                                                //                                            self.user.showLogin = false
-                                                print(res)
-                                                self.isSyncing.toggle()
-                                            } catch let error {
-                                                print(error)
-                                                self.isSyncing.toggle()
-                                                selectedAlert = SelectedAlert(message: "Please try again later")
-                                            }
-                                            print(string)
-                                            
-                                        }
-                                        
-                                        dataTask.resume()
+                                        //                                        dataTask.resume()
                                     }
-                                    //                                    self.isSync.toggle()
+                                    //                                                                        self.isSync.toggle()
                                     
                                 }
                                 .frame(maxWidth: 40, maxHeight:0)
@@ -288,17 +295,17 @@ struct ConsolesView: View {
             
         }
         .frame(maxWidth: .infinity)
-        .slideOverCard(isPresented: $user.showLogin) {
-            // Here goes your awesome content
-            SignInView()
-        }
-        .slideOverCard(isPresented: $showProfile) {
-            // Here goes your awesome content
-            TrophyView()
-        }
-        .slideOverCard(isPresented: $user.showProfile) {
-            UserView()
-        }
+        //        .slideOverCard(isPresented: $user.showLogin) {
+        //            // Here goes your awesome content
+        //            SignInView()
+        //        }
+        //        .slideOverCard(isPresented: $showProfile) {
+        //            // Here goes your awesome content
+        //            TrophyView()
+        //        }
+        //        .slideOverCard(isPresented: $user.showProfile) {
+        //            UserView()
+        //        }
         
     }
 }
