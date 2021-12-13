@@ -20,7 +20,6 @@
 		B0BC8B7726FD6C2E00E3965E /* ConsolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */; };
 		B0BC8B7926FD758E00E3965E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7826FD758D00E3965E /* StatsView.swift */; };
 		B0BC8B7B2702B9A600E3965E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B7A2702B9A400E3965E /* SignInView.swift */; };
-		B0BC8B8727032E5700E3965E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */; };
 		B0BC8B8C2704142D00E3965E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B8B2704142C00E3965E /* AppDelegate.swift */; };
 		B0BC8B8E270414DC00E3965E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */; };
 		B0BC8B9427043DB200E3965E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B0BC8B9327043DB200E3965E /* GoogleSignIn */; };
@@ -43,7 +42,6 @@
 		B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolesView.swift; sourceTree = "<group>"; };
 		B0BC8B7826FD758D00E3965E /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		B0BC8B7A2702B9A400E3965E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0BC8B8B2704142C00E3965E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C460FF62879005C3473295FA /* Pods-GameCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCard.release.xcconfig"; path = "Target Support Files/Pods-GameCard/Pods-GameCard.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				B0BC8B7626FD6C2E00E3965E /* ConsolesView.swift */,
 				B0BC8B7826FD758D00E3965E /* StatsView.swift */,
 				B0BC8B7A2702B9A400E3965E /* SignInView.swift */,
-				B0BC8B8627032E5700E3965E /* GoogleService-Info.plist */,
 				B0BC8B8B2704142C00E3965E /* AppDelegate.swift */,
 				B0BC8B8D270414DC00E3965E /* SceneDelegate.swift */,
 				B0A447DF2711AFD0006DDE92 /* TrophyView.swift */,
@@ -201,7 +198,6 @@
 			files = (
 				B0BC8B6D26FC332A00E3965E /* Preview Assets.xcassets in Resources */,
 				B0BC8B6A26FC332A00E3965E /* Assets.xcassets in Resources */,
-				B0BC8B8727032E5700E3965E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,10 +389,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GameCard/GameCard.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haoqi Li (5J8JW6N78X)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameCard/Preview Content\"";
-				DEVELOPMENT_TEAM = 29294GQRKM;
+				DEVELOPMENT_TEAM = 48543QTDU3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameCard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -404,9 +401,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spiffyeight77.GameCard;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.peropero.PeroGameCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = PeroGameCard_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,10 +417,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GameCard/GameCard.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haoqi Li (5J8JW6N78X)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameCard/Preview Content\"";
-				DEVELOPMENT_TEAM = 29294GQRKM;
+				DEVELOPMENT_TEAM = 48543QTDU3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameCard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -430,9 +429,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spiffyeight77.GameCard;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.peropero.PeroGameCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = PeroGameCard_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

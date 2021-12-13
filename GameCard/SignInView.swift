@@ -39,7 +39,7 @@ struct SignInView: View {
     @State private var resId = ""
     @EnvironmentObject var user: UserStore
     
-    let signInConfig = GIDConfiguration.init(clientID: "18202803046-7c6313k00mer0tkdgpj4po8mlqgof9nu.apps.googleusercontent.com")
+    let signInConfig = GIDConfiguration.init(clientID: "247227499445-jing4i3rhjpb1jvibfoukcc4ljknko2a.apps.googleusercontent.com")
     var body: some View {
         VStack (spacing: 30) {
             HStack(spacing: 12) {
@@ -66,10 +66,15 @@ struct SignInView: View {
                         } else {
                             
                             print("Logged In")
-                            
+                            print(Profile.current?.userID ?? "")
+                            print(Profile.current?.email ?? "")
+                            print(AuthenticationToken.current?.tokenString ?? "")
+                            print(AccessToken.current?.tokenString ?? "")
                             let semaphore = DispatchSemaphore(value: 0)
                             
                             let url = "https://user-overseas.peropero.net/api/v1/o/facebook/facebookGetToken?" + "&token=" + result!.token!.tokenString + "&user_id=" + result!.token!.userID + "&game_id=musedash" + "&app_id=171760141721705"
+                            
+                            print(url)
                             
                             let codeUrl = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
                             
@@ -256,6 +261,10 @@ struct SignInView: View {
                     case .success(let authenticationResults):
                         switch authenticationResults.credential {
                         case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                            
+                            guard let authorizationCode = appleIDCredential.authorizationCode else { return }
+                            let authorizationCodeStr = String(decoding: authorizationCode, as: UTF8.self)
+                            print(authorizationCodeStr)
                             
                             guard let token = appleIDCredential.identityToken else { return }
                             let tokenStr = String(data: token, encoding: .utf8) ?? ""
